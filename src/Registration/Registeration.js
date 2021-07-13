@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import {TextField, Button} from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import SnackBar from "../SnackBar";
@@ -17,7 +16,6 @@ const Registration = () => {
 
   const route = useHistory();
   const onClickRegiser = async () => {
-    // console.log("?", valueLogin, valuePassword);
 
     if (valueLogin.length < 6) {
       setOpen(true);
@@ -38,8 +36,7 @@ const Registration = () => {
           login: valueLogin,
           password: valuePassword,
         });
-        console.log("res", res);
-        const token = res.data?.token;
+        const token = res.data.token;
 
         // save token to localStorage
         window.localStorage.setItem("token", token);

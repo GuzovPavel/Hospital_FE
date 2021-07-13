@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.scss";
 import { Button } from "@material-ui/core";
 import TaskBar from "./TaskBar/TaskBar";
 import Title from "./Title";

@@ -2,6 +2,7 @@ import build from "./build.svg";
 import React from "react";
 import Registration from "./Registration/Registeration";
 import Title from "./Title";
+import "./App.scss";
 
 const PageOfRegistration = () => {
   return (

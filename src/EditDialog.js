@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Select from "@material-ui/core/Select";
-import Input from "@material-ui/core/Input";
-import MenuItem from "@material-ui/core/MenuItem";
+import {
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Select,
+  Input,
+  MenuItem,
+} from "@material-ui/core";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://localhost:8000/";
@@ -30,7 +32,7 @@ const EditDialog = ({
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const onClickUndo = () => {
     setEditIndex(-1);
     setOpen(false);
   };
@@ -53,7 +55,7 @@ const EditDialog = ({
         visits[index] = res.data.changingVisit;
         setVisits(visits);
       });
-    handleClose();
+      onClickUndo();
   };
 
   const doctors = [
@@ -70,7 +72,7 @@ const EditDialog = ({
     <div>
       <Dialog
         open={open}
-        onClose={handleClose}
+        onClose={onClickUndo}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">Изменить запись</DialogTitle>
@@ -115,7 +117,7 @@ const EditDialog = ({
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={onClickUndo} color="primary">
             Отменить
           </Button>
           <Button onClick={onClickSave} color="primary">

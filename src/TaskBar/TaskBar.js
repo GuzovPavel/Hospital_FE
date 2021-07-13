@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import TextField from "@material-ui/core/TextField";
+import { 
+  TextField, 
+  Input, 
+  MenuItem, 
+  Select, 
+  Button } from "@material-ui/core";
 import "date-fns";
-import Input from "@material-ui/core/Input";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
 import "../App.scss";
 import moment from "moment";
-import { Button } from "@material-ui/core";
 import axios from "axios";
 import SnackBar from "../SnackBar";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 
 const TaskBar = ({ visits, setVisits }) => {
-  window.localStorage.getItem("token");
   const [open, setOpen] = useState(false);
   const [currentDoctor, setCurrentDoctor] = useState("");
   const [valueName, setValueName] = useState("");
@@ -72,7 +72,7 @@ const TaskBar = ({ visits, setVisits }) => {
 
   return (
     <div className="TaskBar">
-      <div class="inputName">
+      <div className="inputName">
         <span>Имя:</span>
         <TextField
           id="outlined-basic"
@@ -91,7 +91,7 @@ const TaskBar = ({ visits, setVisits }) => {
           onChange={(e) => setSelectedDate(e.target.value)}
         />
       </div>
-      <div class="inputDoctor">
+      <div className="inputDoctor">
         <span> Врач: </span>
         <Select
           labelId="demo-mutiple-name-label"

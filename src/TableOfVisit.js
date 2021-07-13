@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+import {
+  withStyles,
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteDialog from "./DeleteDialog";
@@ -30,17 +33,11 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+const createData = (name, date, doctor, complaint, editing) => {
+  return { name, date, doctor, complaint, editing };
+};
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+const rows = [createData("Имя", "Дата", "Врач", "Жалоба", "Редактирование")];
 
 const useStyles = makeStyles({
   table: {
@@ -84,14 +81,21 @@ const TableOfVisit = ({ visits, setVisits }) => {
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
-          <TableRow>
-            <StyledTableCell align="center">Имя</StyledTableCell>
-            <StyledTableCell align="center">Дата</StyledTableCell>
-            <StyledTableCell align="center">Врач</StyledTableCell>
-            <StyledTableCell align="center">Жалоба</StyledTableCell>
-            <StyledTableCell align="center">Редактирование</StyledTableCell>
-          </TableRow>
+          {rows.map((collumn) => (
+            <TableRow>
+              <StyledTableCell align="center">{collumn.name}</StyledTableCell>
+              <StyledTableCell align="center">{collumn.date}</StyledTableCell>
+              <StyledTableCell align="center">{collumn.doctor}</StyledTableCell>
+              <StyledTableCell align="center">
+                {collumn.complaint}
+              </StyledTableCell>
+              <StyledTableCell align="center">
+                {collumn.editing}
+              </StyledTableCell>
+            </TableRow>
+          ))}
         </TableHead>
+
         <TableBody>
           {visits.map((row, index) => (
             <StyledTableRow key={`visit-${index}`}>
