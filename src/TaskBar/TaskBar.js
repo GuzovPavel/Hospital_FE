@@ -6,10 +6,10 @@ import {
   Select, 
   Button } from "@material-ui/core";
 import "date-fns";
-import "../App.scss";
 import moment from "moment";
 import axios from "axios";
 import SnackBar from "../SnackBar";
+import "./TaskBar.scss";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 
@@ -71,8 +71,8 @@ const TaskBar = ({ visits, setVisits }) => {
   };
 
   return (
-    <div className="TaskBar">
-      <div className="inputName">
+    <div className="Task-bar">
+      <div className="input-name">
         <span>Имя:</span>
         <TextField
           id="outlined-basic"
@@ -81,7 +81,7 @@ const TaskBar = ({ visits, setVisits }) => {
           onChange={(e) => setValueName(e.target.value)}
         />
       </div>
-      <div class="InputDate">
+      <div className="Input-date">
         <span>Дата:</span>
         <TextField
           id="outlined-basic"
@@ -91,7 +91,7 @@ const TaskBar = ({ visits, setVisits }) => {
           onChange={(e) => setSelectedDate(e.target.value)}
         />
       </div>
-      <div className="inputDoctor">
+      <div className="input-doctor">
         <span> Врач: </span>
         <Select
           labelId="demo-mutiple-name-label"
@@ -106,7 +106,7 @@ const TaskBar = ({ visits, setVisits }) => {
           ))}
         </Select>
       </div>
-      <div class="inputComplaint">
+      <div className="input-complaint">
         <span>Жалобы</span>
         <TextField
           id="outlined-basic"

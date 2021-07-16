@@ -108,32 +108,29 @@ const TableOfVisit = ({ visits, setVisits }) => {
               <StyledTableCell align="center">
                 <DeleteIcon onClick={() => onClickDel(index)} />
                 <EditIcon onClick={() => onClickEdit(index)} />
-
-                {deleteIndex >= 0 && (
-                  <DeleteDialog
-                    open={open}
-                    setOpen={setOpen}
-                    onDeleteVisit={handleDeleteVisit}
-                    onClose={handleClose}
-                    visit={visits[deleteIndex]}
-                    setVisits={setVisits}
-                    visits={visits}
-                  />
-                )}
-                {console.log(editIndex)}
-                {editIndex >= 0 && (
-                  <EditDialog
-                    open={open}
-                    setOpen={setOpen}
-                    visits={visits}
-                    visit={visits[editIndex]}
-                    setVisits={setVisits}
-                    index={editIndex}
-                    setEditIndex={setEditIndex}
-                    // visit={visits[editIndex]}
-                  />
-                )}
               </StyledTableCell>
+              {deleteIndex >= 0 && (
+                <DeleteDialog
+                  open={open}
+                  setOpen={setOpen}
+                  onDeleteVisit={handleDeleteVisit}
+                  onClose={handleClose}
+                  visit={visits[deleteIndex]}
+                  setVisits={setVisits}
+                  visits={visits}
+                />
+              )}
+              {editIndex >= 0 && (
+                <EditDialog
+                  open={open}
+                  setOpen={setOpen}
+                  visits={visits}
+                  visit={visits[editIndex]}
+                  setVisits={setVisits}
+                  index={editIndex}
+                  setEditIndex={setEditIndex}
+                />
+              )}
             </StyledTableRow>
           ))}
         </TableBody>

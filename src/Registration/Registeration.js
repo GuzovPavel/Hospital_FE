@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import {TextField, Button} from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import SnackBar from "../SnackBar";
+import './Registration.scss'
 
 axios.defaults.baseURL = "http://localhost:8000/";
 
@@ -38,11 +39,9 @@ const Registration = () => {
         });
         const token = res.data.token;
 
-        // save token to localStorage
         window.localStorage.setItem("token", token);
 
         route.push("/home");
-        // saveTokenToStorage(token)
       } else {
         setOpen(true);
         setMessage("Пароли не совпадают");

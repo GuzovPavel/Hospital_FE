@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "../App.scss";
-import axios from "axios";
-import {TextField, Button} from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import { TextField, Button } from "@material-ui/core";
 import SnackBar from "../SnackBar";
+import "./Login.scss";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 

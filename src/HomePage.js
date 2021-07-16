@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import "./App.scss";
 import { Button } from "@material-ui/core";
 import TaskBar from "./TaskBar/TaskBar";
 import Title from "./Title";
 import { useHistory } from "react-router-dom";
 import TableOfVisit from "./TableOfVisit";
+import "./App.scss";
 
 const HomePage = () => {
   const [visits, setVisits] = useState([]);
 
   const route = useHistory();
-
   const onClickLoguot = () => {
     localStorage.clear();
     route.push("/login");
